@@ -9,6 +9,7 @@ using Kin.Shared.Models.MarketPlace;
 using Newtonsoft.Json;
 using NJsonSchema;
 using NJsonSchema.Validation;
+using JsonSchema4 = NJsonSchema.JsonSchema;
 
 namespace Kin.Marketplace
 {
@@ -20,7 +21,7 @@ namespace Kin.Marketplace
         public MarketPlaceHeadersHandler(MarketPlaceHttpHeaders marketPlaceHttpHeaders, HttpMessageHandler innerHandler = null)
         {
 
-            _schema = JsonSchema4.FromTypeAsync<MarketPlaceError>().Result;
+            _schema = JsonSchema4.FromType<MarketPlaceError>();
             _marketPlaceHttpHeaders = marketPlaceHttpHeaders;
             InnerHandler = innerHandler ?? new HttpClientHandler();
         }

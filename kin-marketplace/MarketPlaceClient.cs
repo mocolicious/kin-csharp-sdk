@@ -21,7 +21,6 @@ namespace Kin.Marketplace
             RefitSettings refitSetting = new RefitSettings
             {
                 HttpMessageHandlerFactory = () => new MetricHttpHandler(new MarketPlaceHeadersHandler(marketPlaceHttpHeaders, innerHandler)),
-                JsonSerializerSettings = new JsonSerializerSettings {NullValueHandling = NullValueHandling.Ignore},
                 AuthorizationHeaderValueGetter = authorizationHeaderValueGetter
             };
 

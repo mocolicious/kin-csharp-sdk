@@ -61,7 +61,7 @@ namespace kin_csharp_sample_app
                 return Task.CompletedTask;
             };
         }
-        public SimpleKinClient()
+        public SimpleKinClient(string horizonUrl, string networkId, string appId)
         {
 
             _deviceInfo = new Information("Kinny", "RYZENBBY", "Chrome", "Windows", "1.0.0");
@@ -84,25 +84,26 @@ namespace kin_csharp_sample_app
 
 
             _marketPlaceJwtProvider = new JwtProvider("kin", kinsKeys);
-            _blockChainHandler = new BlockChainHandler(config, "test");
+            _blockChainHandler = new BlockChainHandler(horizonUrl, networkId, appId);
         }
 
-        public async Task FirstTest()
-        {
-            //Creating a market place user
-            _authToken = await _marketPlaceClient.Users(GetSignInData()).ConfigureAwait(false);
-            _authToken = await _marketPlaceClient.UsersMeActivate().ConfigureAwait(false);
+        //public async Task FirstTest()
+        //{
+        //    //Creating a market place user
+        //    _authToken = await _marketPlaceClient.Users(GetSignInData()).ConfigureAwait(false);
+        //    _authToken = await _marketPlaceClient.UsersMeActivate().ConfigureAwait(false);
 
-            //Trusting the KIN asset
-            await _blockChainHandler.TryUntilActivated(_keyPair).ConfigureAwait(false);
+        //    //Trusting the KIN asset
+        //    await _blockChainHandler.TryUntilActivated(_keyPair).ConfigureAwait(false);
+        //    await _blockChainHandler.TryUntilActivated(_keyPair).ConfigureAwait(false);
 
-            //Completing the tutorial!
-            var order = await DoFirstOffer().ConfigureAwait(false);
+        //    //Completing the tutorial!
+        //    var order = await DoFirstOffer().ConfigureAwait(false);
 
 
-            double balance = await _blockChainHandler.GetKinBalance(_keyPair).ConfigureAwait(false);
-            var txResponse = await _blockChainHandler.SendPayment(_keyPair, order.BlockChainData.SenderAddress, balance).ConfigureAwait(false);
-        }
+        //    double balance = await _blockChainHandler.GetKinBalance(_keyPair).ConfigureAwait(false);
+        //    var txResponse = await _blockChainHandler.SendPayment(_keyPair, order.BlockChainData.SenderAddress, balance).ConfigureAwait(false);
+        //}
         private long CurrentUtcTimeMs()
         {
             return (long)(DateTime.Now - new DateTime(1970, 1, 1)).TotalMilliseconds;
@@ -135,58 +136,58 @@ namespace kin_csharp_sample_app
             throw new Exception("no offers dawg");
         }
 
-        public async Task DoP2POffer(string toUserId = null)
-        {
-            P2PBuilder p2POffer = JwtProviderBuilder.P2P
-                .AddOffer("p2p-" + toUserId, 1)
-                .AddSender(UserId, "p2p", "to myself")
-                .AddRecipient(toUserId ?? UserId, "p2p", "to him?");
+        //public async Task DoP2POffer(string toUserId = null)
+        //{
+        //    P2PBuilder p2POffer = JwtProviderBuilder.P2P
+        //        .AddOffer("p2p-" + toUserId, 1)
+        //        .AddSender(UserId, "p2p", "to myself")
+        //        .AddRecipient(toUserId ?? UserId, "p2p", "to him?");
 
-            Console.WriteLine(p2POffer.ToString());
+        //    Console.WriteLine(p2POffer.ToString());
 
-            OpenOrder createExternalP2POffer =
-                await _marketPlaceClient.CreateExternalOffer(p2POffer.Jwt).ConfigureAwait(false);
+        //    OpenOrder createExternalP2POffer =
+        //        await _marketPlaceClient.CreateExternalOffer(p2POffer.Jwt).ConfigureAwait(false);
 
-            Order submitP2POffer =
-                await _marketPlaceClient.SubmitOrder(createExternalP2POffer.Id).ConfigureAwait(false);
+        //    Order submitP2POffer =
+        //        await _marketPlaceClient.SubmitOrder(createExternalP2POffer.Id).ConfigureAwait(false);
 
-            SubmitTransactionResponse submitTransactionResponse = await _blockChainHandler
-                .SendPayment(_keyPair, submitP2POffer.BlockChainData.RecipientAddress, submitP2POffer.Amount,
-                    submitP2POffer.Id).ConfigureAwait(false);
+        //    SubmitTransactionResponse submitTransactionResponse = await _blockChainHandler
+        //        .SendPaymentOperation(new Transaction(_keyPair, submitP2POffer.BlockChainData.RecipientAddress, submitP2POffer.Amount,
+        //            submitP2POffer.Id)).ConfigureAwait(false);
 
-            Order finishedOrder = await WaitForOrderCompletion(UserId, submitP2POffer.Id).ConfigureAwait(false);
+        //    Order finishedOrder = await WaitForOrderCompletion(UserId, submitP2POffer.Id).ConfigureAwait(false);
 
-            if (!string.IsNullOrEmpty(finishedOrder?.OrderResult?.Jwt))
-            {
-                SecurityToken token = _marketPlaceJwtProvider.ValidateJwtToken(finishedOrder?.OrderResult?.Jwt);
-            }
-        }
+        //    if (!string.IsNullOrEmpty(finishedOrder?.OrderResult?.Jwt))
+        //    {
+        //        SecurityToken token = _marketPlaceJwtProvider.ValidateJwtToken(finishedOrder?.OrderResult?.Jwt);
+        //    }
+        //}
 
-        private async Task DoExternalSpendOffer()
-        {
-            string externalSpendOffer = JwtProviderBuilder.Spend
-                .AddOffer("spendit", 111)
-                .AddSender(UserId, "speeend it", "block chain sutff isn't coded yet lawl, i'm neva goonna spend")
-                .Jwt;
+        //private async Task DoExternalSpendOffer()
+        //{
+        //    string externalSpendOffer = JwtProviderBuilder.Spend
+        //        .AddOffer("spendit", 111)
+        //        .AddSender(UserId, "speeend it", "block chain sutff isn't coded yet lawl, i'm neva goonna spend")
+        //        .Jwt;
 
-            OpenOrder createExternalSpendOffer =
-                await _marketPlaceClient.CreateExternalOffer(externalSpendOffer).ConfigureAwait(false);
+        //    OpenOrder createExternalSpendOffer =
+        //        await _marketPlaceClient.CreateExternalOffer(externalSpendOffer).ConfigureAwait(false);
 
-            Order submitSpendOffer =
-                await _marketPlaceClient.SubmitOrder(createExternalSpendOffer.Id).ConfigureAwait(false);
+        //    Order submitSpendOffer =
+        //        await _marketPlaceClient.SubmitOrder(createExternalSpendOffer.Id).ConfigureAwait(false);
 
-            SubmitTransactionResponse submitTransactionResponse = await _blockChainHandler.SendPayment(_keyPair,
-                submitSpendOffer.BlockChainData.RecipientAddress,
-                submitSpendOffer.Amount, submitSpendOffer.Id).ConfigureAwait(false);
+        //    SubmitTransactionResponse submitTransactionResponse = await _blockChainHandler.SendPayment(_keyPair,
+        //        submitSpendOffer.BlockChainData.RecipientAddress,
+        //        submitSpendOffer.Amount, submitSpendOffer.Id).ConfigureAwait(false);
 
 
-            Order finishedOrder = await WaitForOrderCompletion(UserId, submitSpendOffer.Id).ConfigureAwait(false);
+        //    Order finishedOrder = await WaitForOrderCompletion(UserId, submitSpendOffer.Id).ConfigureAwait(false);
 
-            if (!string.IsNullOrEmpty(finishedOrder?.OrderResult?.Jwt))
-            {
-                SecurityToken token = _marketPlaceJwtProvider.ValidateJwtToken(finishedOrder?.OrderResult?.Jwt);
-            }
-        }
+        //    if (!string.IsNullOrEmpty(finishedOrder?.OrderResult?.Jwt))
+        //    {
+        //        SecurityToken token = _marketPlaceJwtProvider.ValidateJwtToken(finishedOrder?.OrderResult?.Jwt);
+        //    }
+        //}
 
         private async Task DoExternalEarnOffer()
         {

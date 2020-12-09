@@ -39,10 +39,10 @@ namespace kin_csharp_sample_app
             {
                 try
                 {
-                    SimpleKinClient firstKinClient = new SimpleKinClient();
-                    //SimpleKinClient secondKinClient = new SimpleKinClient();
+                    //SimpleKinClient firstKinClient = new SimpleKinClient();
+                    ////SimpleKinClient secondKinClient = new SimpleKinClient();
 
-                    await firstKinClient.FirstTest();
+                    //await firstKinClient.FirstTest();
                 }
                 catch
                 {
