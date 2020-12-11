@@ -14,7 +14,6 @@
   <ItemGroup>
     <ProjectReference Include="..\kin-backup\Kin.Backup.csproj" />
     <ProjectReference Include="..\kin-blockchain\Kin.BlockChain.csproj" />
-    <ProjectReference Include="..\kin-client\Kin.Client.csproj" />
     <ProjectReference Include="..\kin-jwt\Kin.Jwt.csproj" />
     <ProjectReference Include="..\kin-marketplace\Kin.Marketplace.csproj" />
     <ProjectReference Include="..\kin-shared\Kin.Shared.csproj" />
