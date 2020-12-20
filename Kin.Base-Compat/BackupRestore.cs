@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Kin.Stellar.Sdk;
+using System.Threading.Tasks;
 
 namespace Kin.Base_Compat
 {
-    class BackupRestore
+    public interface BackupRestore
     {
+        Task<string> exportWallet(KeyPair keyPair, string passphrase);
+        Task<KeyPair> importWallet(string exportedJson, string passphrase);
     }
 }

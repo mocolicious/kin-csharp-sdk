@@ -4,7 +4,9 @@ using System.Text;
 
 namespace Kin.Base_Compat
 {
-    class AccountStatus
+    public enum AccountStatus
     {
+        NOT_CREATED = 0,
+        CREATED = 2
     }
 }
