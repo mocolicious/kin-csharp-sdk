@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Kin.Base_Compat
 {
-    class ListenerRegistration
+    public class ListenerRegistration
     {
     }
 }

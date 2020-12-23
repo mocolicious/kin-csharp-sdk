@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Kin.Base_Compat
 {
-    interface Balance
+    public interface Balance
     {
         Task<decimal> value();
         Task<string> value(int precision);
