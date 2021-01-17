@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Kin.Base.models.solana
 {
-    class FixedByteArray
+    abstract class FixedByteArray
     {
+        private int size { get; set; }
+        FixedByteArray(byte[] byteArray) {
+            size = byteArray.Length;
+        }
     }
 }

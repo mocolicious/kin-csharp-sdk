@@ -4,7 +4,5 @@ using System.Text;
 
 namespace Kin.Base.models.solana
 {
-    class ByteUtils
-    {
-    }
+    //TODO: Byte Utils
 }

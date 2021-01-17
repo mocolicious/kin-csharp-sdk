@@ -3,7 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-
+  <PropertyGroup>
+     <LangVersion>latest</LangVersion>
+  </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\kin-stellar-sdk\Kin.Stellar.Sdk.csproj" />
   </ItemGroup>

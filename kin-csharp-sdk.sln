@@ -21,9 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kin.Tooling", "kin-tooling\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kin.Migration", "kin-migration\Kin.Migration.csproj", "{4BB69B67-0E34-4644-8D63-1E9DCA1409E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kin.Base", "Kin.Base\Kin.Base.csproj", "{C2576B4E-1187-4462-ABDB-3F3458296662}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kin.Base", "Kin.Base\Kin.Base.csproj", "{C2576B4E-1187-4462-ABDB-3F3458296662}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kin.Base-Compat", "Kin.Base-Compat\Kin.Base-Compat.csproj", "{8D8ABB2A-C6DE-4472-8CA5-365D4F4BDC00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kin.Base-Compat", "Kin.Base-Compat\Kin.Base-Compat.csproj", "{8D8ABB2A-C6DE-4472-8CA5-365D4F4BDC00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kin.Spend", "Kin.Spend\Kin.Spend.csproj", "{BAB3FDC9-7F30-4752-A6A4-41009149DAF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{8D8ABB2A-C6DE-4472-8CA5-365D4F4BDC00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D8ABB2A-C6DE-4472-8CA5-365D4F4BDC00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D8ABB2A-C6DE-4472-8CA5-365D4F4BDC00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAB3FDC9-7F30-4752-A6A4-41009149DAF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAB3FDC9-7F30-4752-A6A4-41009149DAF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAB3FDC9-7F30-4752-A6A4-41009149DAF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAB3FDC9-7F30-4752-A6A4-41009149DAF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
