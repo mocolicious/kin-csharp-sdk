@@ -42,20 +42,16 @@ namespace Kin.Agora.Airdrop.V4 {
             "QWlyZHJvcFY0YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Kin.Agora.Common.V4.ModelReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Kin.Agora.Airdrop.V4.RequestAirdropRequest), global::Kin.Agora.Airdrop.V4.RequestAirdropRequest.Parser, new[]{ "AccountId", "Quarks", "Commitment" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Kin.Agora.Airdrop.V4.RequestAirdropResponse), global::Kin.Agora.Airdrop.V4.RequestAirdropResponse.Parser, new[]{ "Result", "Signature" }, null, new[]{ typeof(global::Kin.Agora.Airdrop.V4.RequestAirdropResponse.Types.Result) }, null, null)
+          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kin.Agora.Airdrop.V4.RequestAirdropRequest), global::Kin.Agora.Airdrop.V4.RequestAirdropRequest.Parser, new[]{ "AccountId", "Quarks", "Commitment" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kin.Agora.Airdrop.V4.RequestAirdropResponse), global::Kin.Agora.Airdrop.V4.RequestAirdropResponse.Parser, new[]{ "Result", "Signature" }, null, new[]{ typeof(global::Kin.Agora.Airdrop.V4.RequestAirdropResponse.Types.Result) }, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  public sealed partial class RequestAirdropRequest : pb::IMessage<RequestAirdropRequest>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
+  public sealed partial class RequestAirdropRequest : pb::IMessage<RequestAirdropRequest> {
     private static readonly pb::MessageParser<RequestAirdropRequest> _parser = new pb::MessageParser<RequestAirdropRequest>(() => new RequestAirdropRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -115,7 +111,7 @@ namespace Kin.Agora.Airdrop.V4 {
 
     /// <summary>Field number for the "commitment" field.</summary>
     public const int CommitmentFieldNumber = 3;
-    private global::Kin.Agora.Common.V4.Commitment commitment_ = global::Kin.Agora.Common.V4.Commitment.Recent;
+    private global::Kin.Agora.Common.V4.Commitment commitment_ = 0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Kin.Agora.Common.V4.Commitment Commitment {
       get { return commitment_; }
@@ -148,7 +144,7 @@ namespace Kin.Agora.Airdrop.V4 {
       int hash = 1;
       if (accountId_ != null) hash ^= AccountId.GetHashCode();
       if (Quarks != 0UL) hash ^= Quarks.GetHashCode();
-      if (Commitment != global::Kin.Agora.Common.V4.Commitment.Recent) hash ^= Commitment.GetHashCode();
+      if (Commitment != 0) hash ^= Commitment.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -162,9 +158,6 @@ namespace Kin.Agora.Airdrop.V4 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
       if (accountId_ != null) {
         output.WriteRawTag(10);
         output.WriteMessage(AccountId);
@@ -173,36 +166,14 @@ namespace Kin.Agora.Airdrop.V4 {
         output.WriteRawTag(16);
         output.WriteUInt64(Quarks);
       }
-      if (Commitment != global::Kin.Agora.Common.V4.Commitment.Recent) {
+      if (Commitment != 0) {
         output.WriteRawTag(24);
         output.WriteEnum((int) Commitment);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
-    #endif
     }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (accountId_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(AccountId);
-      }
-      if (Quarks != 0UL) {
-        output.WriteRawTag(16);
-        output.WriteUInt64(Quarks);
-      }
-      if (Commitment != global::Kin.Agora.Common.V4.Commitment.Recent) {
-        output.WriteRawTag(24);
-        output.WriteEnum((int) Commitment);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -213,7 +184,7 @@ namespace Kin.Agora.Airdrop.V4 {
       if (Quarks != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Quarks);
       }
-      if (Commitment != global::Kin.Agora.Common.V4.Commitment.Recent) {
+      if (Commitment != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Commitment);
       }
       if (_unknownFields != null) {
@@ -229,14 +200,14 @@ namespace Kin.Agora.Airdrop.V4 {
       }
       if (other.accountId_ != null) {
         if (accountId_ == null) {
-          AccountId = new global::Kin.Agora.Common.V4.SolanaAccountId();
+          accountId_ = new global::Kin.Agora.Common.V4.SolanaAccountId();
         }
         AccountId.MergeFrom(other.AccountId);
       }
       if (other.Quarks != 0UL) {
         Quarks = other.Quarks;
       }
-      if (other.Commitment != global::Kin.Agora.Common.V4.Commitment.Recent) {
+      if (other.Commitment != 0) {
         Commitment = other.Commitment;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -244,9 +215,6 @@ namespace Kin.Agora.Airdrop.V4 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -255,9 +223,9 @@ namespace Kin.Agora.Airdrop.V4 {
             break;
           case 10: {
             if (accountId_ == null) {
-              AccountId = new global::Kin.Agora.Common.V4.SolanaAccountId();
+              accountId_ = new global::Kin.Agora.Common.V4.SolanaAccountId();
             }
-            input.ReadMessage(AccountId);
+            input.ReadMessage(accountId_);
             break;
           }
           case 16: {
@@ -265,50 +233,16 @@ namespace Kin.Agora.Airdrop.V4 {
             break;
           }
           case 24: {
-            Commitment = (global::Kin.Agora.Common.V4.Commitment) input.ReadEnum();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            if (accountId_ == null) {
-              AccountId = new global::Kin.Agora.Common.V4.SolanaAccountId();
-            }
-            input.ReadMessage(AccountId);
-            break;
-          }
-          case 16: {
-            Quarks = input.ReadUInt64();
-            break;
-          }
-          case 24: {
-            Commitment = (global::Kin.Agora.Common.V4.Commitment) input.ReadEnum();
+            commitment_ = (global::Kin.Agora.Common.V4.Commitment) input.ReadEnum();
             break;
           }
         }
       }
     }
-    #endif
 
   }
 
-  public sealed partial class RequestAirdropResponse : pb::IMessage<RequestAirdropResponse>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
+  public sealed partial class RequestAirdropResponse : pb::IMessage<RequestAirdropResponse> {
     private static readonly pb::MessageParser<RequestAirdropResponse> _parser = new pb::MessageParser<RequestAirdropResponse>(() => new RequestAirdropResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -345,7 +279,7 @@ namespace Kin.Agora.Airdrop.V4 {
 
     /// <summary>Field number for the "result" field.</summary>
     public const int ResultFieldNumber = 1;
-    private global::Kin.Agora.Airdrop.V4.RequestAirdropResponse.Types.Result result_ = global::Kin.Agora.Airdrop.V4.RequestAirdropResponse.Types.Result.Ok;
+    private global::Kin.Agora.Airdrop.V4.RequestAirdropResponse.Types.Result result_ = 0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Kin.Agora.Airdrop.V4.RequestAirdropResponse.Types.Result Result {
       get { return result_; }
@@ -389,7 +323,7 @@ namespace Kin.Agora.Airdrop.V4 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Result != global::Kin.Agora.Airdrop.V4.RequestAirdropResponse.Types.Result.Ok) hash ^= Result.GetHashCode();
+      if (Result != 0) hash ^= Result.GetHashCode();
       if (signature_ != null) hash ^= Signature.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -404,10 +338,7 @@ namespace Kin.Agora.Airdrop.V4 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (Result != global::Kin.Agora.Airdrop.V4.RequestAirdropResponse.Types.Result.Ok) {
+      if (Result != 0) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Result);
       }
@@ -418,30 +349,12 @@ namespace Kin.Agora.Airdrop.V4 {
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
-    #endif
     }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Result != global::Kin.Agora.Airdrop.V4.RequestAirdropResponse.Types.Result.Ok) {
-        output.WriteRawTag(8);
-        output.WriteEnum((int) Result);
-      }
-      if (signature_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Signature);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Result != global::Kin.Agora.Airdrop.V4.RequestAirdropResponse.Types.Result.Ok) {
+      if (Result != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Result);
       }
       if (signature_ != null) {
@@ -458,12 +371,12 @@ namespace Kin.Agora.Airdrop.V4 {
       if (other == null) {
         return;
       }
-      if (other.Result != global::Kin.Agora.Airdrop.V4.RequestAirdropResponse.Types.Result.Ok) {
+      if (other.Result != 0) {
         Result = other.Result;
       }
       if (other.signature_ != null) {
         if (signature_ == null) {
-          Signature = new global::Kin.Agora.Common.V4.TransactionSignature();
+          signature_ = new global::Kin.Agora.Common.V4.TransactionSignature();
         }
         Signature.MergeFrom(other.Signature);
       }
@@ -472,9 +385,6 @@ namespace Kin.Agora.Airdrop.V4 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -482,45 +392,19 @@ namespace Kin.Agora.Airdrop.V4 {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Result = (global::Kin.Agora.Airdrop.V4.RequestAirdropResponse.Types.Result) input.ReadEnum();
+            result_ = (global::Kin.Agora.Airdrop.V4.RequestAirdropResponse.Types.Result) input.ReadEnum();
             break;
           }
           case 18: {
             if (signature_ == null) {
-              Signature = new global::Kin.Agora.Common.V4.TransactionSignature();
+              signature_ = new global::Kin.Agora.Common.V4.TransactionSignature();
             }
-            input.ReadMessage(Signature);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            Result = (global::Kin.Agora.Airdrop.V4.RequestAirdropResponse.Types.Result) input.ReadEnum();
-            break;
-          }
-          case 18: {
-            if (signature_ == null) {
-              Signature = new global::Kin.Agora.Common.V4.TransactionSignature();
-            }
-            input.ReadMessage(Signature);
+            input.ReadMessage(signature_);
             break;
           }
         }
       }
     }
-    #endif
 
     #region Nested types
     /// <summary>Container for nested types declared in the RequestAirdropResponse message type.</summary>

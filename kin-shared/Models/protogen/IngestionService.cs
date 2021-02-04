@@ -35,9 +35,9 @@ namespace Kin.Agora.Metrics.V3 {
             "aWNzL3YzO21ldHJpY3NiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Kin.Agora.Metrics.V3.SubmitRequest), global::Kin.Agora.Metrics.V3.SubmitRequest.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Kin.Agora.Metrics.V3.SubmitResponse), global::Kin.Agora.Metrics.V3.SubmitResponse.Parser, new[]{ "Result" }, null, new[]{ typeof(global::Kin.Agora.Metrics.V3.SubmitResponse.Types.Result) }, null, null)
+          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kin.Agora.Metrics.V3.SubmitRequest), global::Kin.Agora.Metrics.V3.SubmitRequest.Parser, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Kin.Agora.Metrics.V3.SubmitResponse), global::Kin.Agora.Metrics.V3.SubmitResponse.Parser, new[]{ "Result" }, null, new[]{ typeof(global::Kin.Agora.Metrics.V3.SubmitResponse.Types.Result) }, null)
           }));
     }
     #endregion
@@ -47,11 +47,7 @@ namespace Kin.Agora.Metrics.V3 {
   /// <summary>
   /// todo:
   /// </summary>
-  public sealed partial class SubmitRequest : pb::IMessage<SubmitRequest>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
+  public sealed partial class SubmitRequest : pb::IMessage<SubmitRequest> {
     private static readonly pb::MessageParser<SubmitRequest> _parser = new pb::MessageParser<SubmitRequest>(() => new SubmitRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -116,23 +112,10 @@ namespace Kin.Agora.Metrics.V3 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
-    #endif
     }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
@@ -153,9 +136,6 @@ namespace Kin.Agora.Metrics.V3 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -164,30 +144,11 @@ namespace Kin.Agora.Metrics.V3 {
             break;
         }
       }
-    #endif
     }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-        }
-      }
-    }
-    #endif
 
   }
 
-  public sealed partial class SubmitResponse : pb::IMessage<SubmitResponse>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
+  public sealed partial class SubmitResponse : pb::IMessage<SubmitResponse> {
     private static readonly pb::MessageParser<SubmitResponse> _parser = new pb::MessageParser<SubmitResponse>(() => new SubmitResponse());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -223,7 +184,7 @@ namespace Kin.Agora.Metrics.V3 {
 
     /// <summary>Field number for the "result" field.</summary>
     public const int ResultFieldNumber = 1;
-    private global::Kin.Agora.Metrics.V3.SubmitResponse.Types.Result result_ = global::Kin.Agora.Metrics.V3.SubmitResponse.Types.Result.Ok;
+    private global::Kin.Agora.Metrics.V3.SubmitResponse.Types.Result result_ = 0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Kin.Agora.Metrics.V3.SubmitResponse.Types.Result Result {
       get { return result_; }
@@ -252,7 +213,7 @@ namespace Kin.Agora.Metrics.V3 {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Result != global::Kin.Agora.Metrics.V3.SubmitResponse.Types.Result.Ok) hash ^= Result.GetHashCode();
+      if (Result != 0) hash ^= Result.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -266,36 +227,19 @@ namespace Kin.Agora.Metrics.V3 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (Result != global::Kin.Agora.Metrics.V3.SubmitResponse.Types.Result.Ok) {
+      if (Result != 0) {
         output.WriteRawTag(8);
         output.WriteEnum((int) Result);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
-    #endif
     }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (Result != global::Kin.Agora.Metrics.V3.SubmitResponse.Types.Result.Ok) {
-        output.WriteRawTag(8);
-        output.WriteEnum((int) Result);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Result != global::Kin.Agora.Metrics.V3.SubmitResponse.Types.Result.Ok) {
+      if (Result != 0) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Result);
       }
       if (_unknownFields != null) {
@@ -309,7 +253,7 @@ namespace Kin.Agora.Metrics.V3 {
       if (other == null) {
         return;
       }
-      if (other.Result != global::Kin.Agora.Metrics.V3.SubmitResponse.Types.Result.Ok) {
+      if (other.Result != 0) {
         Result = other.Result;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -317,9 +261,6 @@ namespace Kin.Agora.Metrics.V3 {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
         switch(tag) {
@@ -327,31 +268,12 @@ namespace Kin.Agora.Metrics.V3 {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            Result = (global::Kin.Agora.Metrics.V3.SubmitResponse.Types.Result) input.ReadEnum();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            Result = (global::Kin.Agora.Metrics.V3.SubmitResponse.Types.Result) input.ReadEnum();
+            result_ = (global::Kin.Agora.Metrics.V3.SubmitResponse.Types.Result) input.ReadEnum();
             break;
           }
         }
       }
     }
-    #endif
 
     #region Nested types
     /// <summary>Container for nested types declared in the SubmitResponse message type.</summary>
