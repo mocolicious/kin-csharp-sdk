@@ -10,7 +10,7 @@ namespace Kin.Stellar.Sdk.models
         private readonly byte[] bytesValue;
         private readonly RecordType recordType;
         private readonly NetworkEnvironment networkEnvironment;
-        private readonly InvoiceList? invoiceList;
+        private readonly InvloiceList? invoiceList;
         private readonly TransactionHash transactionHash;
         private readonly KinAccount.Id signingSource;
         private readonly QuarkAmount fee;
