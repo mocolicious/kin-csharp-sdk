@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Kin.Base.models
 {
-    class TransactionHash
+    public class TransactionHash
     {
     }
 }

@@ -8,7 +8,7 @@ namespace Kin.Base.models
     {
     }
 
-    public class InvloiceList
+    public class InvoiceList
     {
 
     }
