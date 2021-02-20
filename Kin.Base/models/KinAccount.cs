@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Kin.Base.models
 {
-    class KinAccount
+    public class KinAccount
     {
+        public KinAccount(Key key, ) { }
     }
 }

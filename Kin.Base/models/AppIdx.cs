@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Kin.Base.models
 {
-    class AppIdx
+    public class AppIdx
     {
+        public static AppIdx TEST_APP_IDX = new AppIdx(0);
+        public AppIdx(int value)
+        {
+        }
     }
 }

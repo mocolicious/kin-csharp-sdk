@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Kin.Base.models
 {
-    class AppInfo
+    public class AppInfo
     {
+        public AppInfo(AppIdx appIdx, KinAccount.Id kinAccountId, string appName, int appIconResourceId) { }
     }
 }

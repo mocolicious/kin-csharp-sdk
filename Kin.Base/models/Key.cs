@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kin.Base.tools;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,9 +7,11 @@ namespace Kin.Base.models
 {
     sealed class Key
     {
-        static byte[] value;
-        public class PublicKey 
+        //public byte[] value;
+        public class PublicKey
         {
+            private byte[] value;
+
             public PublicKey(string publicKeyString)
             {  
             }
@@ -20,9 +23,24 @@ namespace Kin.Base.models
                 return true;
             }
 
-            public override int hashCode()
+            public int hashCode()
             {
                 return value.GetHashCode();
+            }
+
+            public string toString()
+            {
+                return String.Format("Key.PublicKey(value={0}, b58={1})", stellarBase32Encode(), base58Encode());
+            }
+
+            public string stellarBase32Encode()
+            {
+                return toKeyPair().accountId;
+            }
+
+            public string base58Encode()
+            {
+                return Base58.encode(value);
             }
         }
 

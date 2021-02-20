@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Kin.Base.tools
 {
-    public class Base58
+    public static class Base58
     {
         private static readonly char[] ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz".ToCharArray();
         private static readonly char ENCODED_ZERO = ALPHABET[0];
@@ -37,7 +37,7 @@ namespace Kin.Base.tools
 
         }
 
-        string encode(byte[] input)
+        public static string encode(byte[] input)
         {
             var inputCopy = input;
             if (inputCopy.Length == 0)
